@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e35bef87d0d34dee9a4ef5fe25fab4b3" Name="Diagram1">
+        <EntityTypeShape EntityType="GabinetModel.Adres" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.EWizyta" Width="1.5" PointX="13.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.Faktura" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.JednostkaMiary" Width="1.5" PointX="10.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.Kontrahent" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.Kraj" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.OddziałNFZ" Width="1.5" PointX="8" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.Pacjent" Width="1.5" PointX="10.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.PozycjaFaktury" Width="1.5" PointX="12.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.Pracownik" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.RodzajKwoty" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.RodzajWizyty" Width="1.5" PointX="13.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.Skierowanie" Width="1.5" PointX="13.25" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.SposobPlatnosci" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.StatusFaktury" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.StatusPacjenta" Width="1.5" PointX="8" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.TypWizyty" Width="1.5" PointX="13.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.Usluga" Width="1.5" PointX="13.25" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.UslugaKontrahent" Width="1.5" PointX="10.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.Wizyta" Width="1.5" PointX="15.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabinetModel.Wojewodztwo" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="GabinetModel.FK_Adres_Kraj" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Adres_Wojewodztwo" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Kontrahent_Adres" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Pacjent_Adres" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Wizyta_EWizyta" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Faktura_Kontrahent" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Faktura_RodzajKwoty" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Faktura_SposobPlatnosci" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Faktura_StatusFaktury" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_PozycjaFaktury_Faktura" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_PozycjaFaktury_JednostkaMiary" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Pacjent_OddziałNFZ" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Pacjent_StatusPacjenta" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Wizyta_Pacjent" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_PozycjaFaktury_UslugaKontrahent" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Wizyta_RodzajWizyty" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Wizyta_Skierowanie" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Wizyta_TypWizyty" ManuallyRouted="false" />
+        <AssociationConnector Association="GabinetModel.FK_Wizyta_Usluga" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

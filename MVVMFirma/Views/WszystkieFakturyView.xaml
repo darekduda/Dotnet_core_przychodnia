@@ -1,0 +1,35 @@
+﻿<local:WszystkieViewBase x:Class="MVVMFirma.Views.WszystkieFakturyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:local="clr-namespace:MVVMFirma.Views">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StylZakladki.xaml"/>
+    </UserControl.Resources>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Style="{StaticResource RowTytulowy}"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Row="0" Style="{StaticResource GridMargin}">
+            <Label Content="Przeglądaj wizyty" Style="{StaticResource LabelWiekszy}"/>
+            <Separator Style="{StaticResource Separator}"/>
+        </Grid>
+        <Grid Row="1" Style="{StaticResource GridMargin}">
+            <DataGrid  AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Numer" Binding="{Binding Numer}"/>
+                <DataGridTextColumn Header="Data wystawienia" Binding="{Binding DataWystawienia, StringFormat=\{0:dd/MM/yyyy\}}"/>
+                <DataGridTextColumn Header="Nazwa kontrahenta" Binding="{Binding KontrahentNazwa}"/>
+                <DataGridTextColumn Header="Termin platnosci" Binding="{Binding TerminPlatnosci, StringFormat=\{0:dd/MM/yyyy\}}"/>
+                <DataGridTextColumn Header="Kwota faktury" />
+                <DataGridTextColumn Header="Status faktury" Binding="{Binding StatusFakturyNazwa}"/>
+                <DataGridTextColumn Header="Sposób płatności" Binding="{Binding SposobPlatnosciNazwa}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        </Grid>
+    </Grid>
+</local:WszystkieViewBase>

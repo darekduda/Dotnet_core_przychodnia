@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="MVVMFirma.Views.NowaWizytaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVVMFirma.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="600">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StylZakladki.xaml"/>
+    </UserControl.Resources>
+    <ScrollViewer Height="500" VerticalScrollBarVisibility="Auto">
+        <Grid Style="{StaticResource Grid}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Style="{StaticResource RowTytulowy}"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Style="{StaticResource RowTytulowy}"/>
+            </Grid.RowDefinitions>
+            <Grid Row="0" Style="{StaticResource GridMargin}">
+                <Label Content="Nowe spotkanie" Style="{StaticResource LabelWiekszy}"/>
+                <Separator Style="{StaticResource Separator}"/>
+            </Grid>
+            <Grid Row="1" Style="{StaticResource GridMargin}">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionStandardowy}"/>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionSeparacyjny}"/>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionSzeroki}"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0"  Content="Data:" Style="{StaticResource LabelStandardowy}"/>
+                <DatePicker Grid.Row="0" Grid.Column="2" Width="210" Style="{StaticResource DatePickerStandardowy}"
+                             SelectedDate="{Binding DataWizyty, ValidatesOnDataErrors=True}"/>
+
+                <Label Grid.Row="1" Grid.Column="0"  Content="Godzina:" Style="{StaticResource LabelStandardowy}"/>
+                <TextBox Grid.Row="1" Grid.Column="2"  Width="210"  Text="{Binding GodzinaWizyty, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                         Style="{StaticResource TextBoxBialyZRamka}" Template="{DynamicResource  TextBoxZaokraglony}" />
+
+                <Label Grid.Row="2" Grid.Column="0"  Content="Pacjent:" Style="{StaticResource LabelStandardowy}"/>
+                <ComboBox Grid.Row="2" Grid.Column="2" Style="{StaticResource ComboBoxStandardowy}" Width="210" 
+                        
+                                ItemsSource="{Binding PacjenciComboBoxItems}" 
+                                DisplayMemberPath="Value"  
+                                SelectedValuePath="Key"  
+                                SelectedValue="{Binding Path=IDPacjenta, Mode=TwoWay}"
+                                SelectionChanged="ComboBox_SelectionChanged"/>
+
+                <Label Grid.Row="3" Grid.Column="0"  Content="Rodzaj wizyty:" Style="{StaticResource LabelStandardowy}"/>
+                <ComboBox Grid.Row="3" Grid.Column="2" Style="{StaticResource ComboBoxStandardowy}" Width="210"
+                          ItemsSource="{Binding RodzajeWizytComboBoxItems}"
+                          DisplayMemberPath="Nazwa" 
+                          SelectedValuePath="IDRodzajuWizyty" 
+                          SelectedValue="{Binding Path=IDRodzajuWizyty,Mode=TwoWay}"/>
+
+                <Label Grid.Row="4" Grid.Column="0"  Content="E-wizyta:" Style="{StaticResource LabelStandardowy}"/>
+                <ComboBox Grid.Row="4" Grid.Column="2" Style="{StaticResource ComboBoxStandardowy}" Width="210"
+                           ItemsSource="{Binding EWizytaComboBoxItems}"
+                          DisplayMemberPath="Nazwa" 
+                          SelectedValuePath="IDEWizyty" 
+                          SelectedValue="{Binding Path=IDEWizyty,Mode=TwoWay}"/>
+
+                <Label Grid.Row="5" Grid.Column="0"  Content="Typ wizyty:" Style="{StaticResource LabelStandardowy}"/>
+                <ComboBox Grid.Row="5" Grid.Column="2" Style="{StaticResource ComboBoxStandardowy}" Width="210" 
+                          ItemsSource="{Binding  TypyWizytComboBoxItems}"
+                          DisplayMemberPath="Nazwa" 
+                          SelectedValuePath="IDTypuWizyty" 
+                          SelectedValue="{Binding Path=IDTypuWizyty,Mode=TwoWay}"/>
+
+                <Label Grid.Row="6" Grid.Column="0"  Content="Skierowanie:" Style="{StaticResource LabelStandardowy}"/>
+                <ComboBox Grid.Row="6" Grid.Column="2" Style="{StaticResource ComboBoxStandardowy}" Width="210"
+                          ItemsSource="{Binding SkierowanieComboBoxItems}"
+                          DisplayMemberPath="Nazwa" 
+                          SelectedValuePath="IDSkierowania" 
+                          SelectedValue="{Binding Path=IDSkierowania,Mode=TwoWay}"
+                          />
+            </Grid>
+            <Grid Row="2" Style="{StaticResource GridMargin}">
+                <StackPanel Orientation = "Horizontal">
+                    <Button Content="Zamknij" Style="{StaticResource ButtonMaly}" Template="{DynamicResource ButtonCiemnyRoz}"  />
+                    <Button Content="Zapisz " Style="{StaticResource ButtonMalyW}" Template="{DynamicResource ButtonCiemnyRoz}" Command="{Binding SaveCommand}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

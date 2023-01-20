@@ -1,0 +1,158 @@
+﻿<Window x:Class="MVVMFirma.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Menadzer Gabinetu" Height="300" Width="300" WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary Source="MainWindowResources.xaml"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Style="{StaticResource Row30}"/>
+            <RowDefinition Style="{StaticResource Row50}"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Style="{StaticResource Row30}"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource Menu}" Background="#36474F" Foreground="#C8CCCD">
+            <MenuItem Header="_Plik">
+                <MenuItem Header="Ustawienia programu">
+                    <MenuItem.Icon>
+                        <Image Source="/MVVMFirma;component/Content/Icons/settings.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Ustawienia konta" InputGestureText="Ctrl+P"  Command="{Binding UstawieniaCommand}" Style="{StaticResource MenuKolor}"/>
+                <Separator/>
+                <MenuItem Header="Zapisz " InputGestureText="Ctrl+S" Style="{StaticResource MenuKolor}">
+                <MenuItem.Icon>
+                    <Image Source="/MVVMFirma;component/Content/Icons/save.png"/>
+                </MenuItem.Icon>
+            </MenuItem >
+                <MenuItem Header="Drukuj" InputGestureText="Ctrl+P" Style="{StaticResource MenuKolor}">
+                <MenuItem.Icon>
+           
+            <Image Source="/MVVMFirma;component/Content/Icons/print.png"/>
+                </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Zakoncz" InputGestureText="Alt+F4" Style="{StaticResource MenuKolor}"/>
+            </MenuItem>
+            <MenuItem Header="_Pacjent">
+                <MenuItem Header="Dodaj pacjenta"  Command="{Binding NowyPacjentCommand}" Style="{StaticResource MenuKolor}">
+                    <MenuItem.Icon>
+                        <Image Source="/MVVMFirma;component/Content/Icons/man.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Wszyscy pacjenci"  Command="{Binding WszyscyPacjenciCommand}" Style="{StaticResource MenuKolor}"/>
+            </MenuItem>
+            <MenuItem Header="_Wizyta">
+                <MenuItem Header="Dodaj wizyte"  Command="{Binding NowaWizytaCommand}" Style="{StaticResource MenuKolor}">
+                    <MenuItem.Icon>
+                        <Image Source="/MVVMFirma;component/Content/Icons/calendar.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Wizyty"  Command="{Binding WszystkieWizytyCommand}" Style="{StaticResource MenuKolor}"/>
+            </MenuItem>
+
+
+            <MenuItem Header="_Zestawienia">
+                <MenuItem Header="Pacjenci"  Command="{Binding WszyscyPacjenciCommand}" Style="{StaticResource MenuKolor}" />
+                <MenuItem Header="Wizyty"  Command="{Binding WszystkieWizytyCommand}" Style="{StaticResource MenuKolor}"/>
+                <MenuItem Header="Faktury"  Command="{Binding WszystkieFakturyCommand}" Style="{StaticResource MenuKolor}"/>
+                <MenuItem Header="Adresy"  Command="{Binding WszystkieAdresyCommand}" Style="{StaticResource MenuKolor}" />
+                <MenuItem Header="Kraje"  Command="{Binding WszystkieKrajeCommand}" Style="{StaticResource MenuKolor}"/>
+                <MenuItem Header="Oddziały NFZ"  Command="{Binding WszystkieOddzialyCommand}" Style="{StaticResource MenuKolor}"/>
+                <MenuItem Header="Sposoby płatności"  Command="{Binding WszystkieSposobyPlatnosciCommand}" Style="{StaticResource MenuKolor}"/>
+                <MenuItem Header="Statusy pacjenta"  Command="{Binding WszystkieStatusyCommand}" Style="{StaticResource MenuKolor}"/>
+                <MenuItem Header="Typy wizyt"  Command="{Binding WszystkieTypyWizytCommand}" Style="{StaticResource MenuKolor}"/>
+                <MenuItem Header="Usługi dla pacjenta"  Command="{Binding WszystkieUslugiCommand}" Style="{StaticResource MenuKolor}"/>
+                <MenuItem Header="Usługi dla kontrahenta"  Command="{Binding WszystkieUslugiKontrahentaCommand}" Style="{StaticResource MenuKolor}"/>
+                <MenuItem Header="Pracownicy"  Command="{Binding WszyscyPracownicyCommand}" Style="{StaticResource MenuKolor}"/>
+            </MenuItem>
+            <MenuItem Header="_Pomoc">
+                <MenuItem Header="Pokaz pomoc " InputGestureText="Ctrl+F1" Style="{StaticResource MenuKolor}">
+                <MenuItem.Icon>
+                    <Image Source="/MVVMFirma;component/Content/Icons/help.png"/>
+                </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Wyślij opinię" Style="{StaticResource MenuKolor}"/>
+            </MenuItem>
+            <MenuItem Header="_O programie">
+                <MenuItem Header="Autor" Style="{StaticResource MenuKolor}">
+                    <MenuItem.Icon>
+                        <Image Source="/MVVMFirma;component/Content/Icons/icons8-happy-24.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Wersja" Style="{StaticResource MenuKolor}"/>
+            </MenuItem>
+        </Menu>
+        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"  Style="{StaticResource Toolbar}" Background="#36474F">
+            <ToggleButton Style="{StaticResource Ikonki}" Command="{Binding NowaWizytaCommand}"  >
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/MVVMFirma;component/Content/Icons/folder.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource Ikonki}" Command="{Binding WszystkieWizytyCommand}" >
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/MVVMFirma;component/Content/Icons/calendar.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource Ikonki}"  Command="{Binding NowyPacjentCommand}">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/MVVMFirma;component/Content/Icons/man.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator Background="#34515e"/>
+            <ToggleButton Style="{StaticResource Ikonki}"  Command="{Binding NowaFakturaCommand}" >
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/MVVMFirma;component/Content/Icons/wallet.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource Ikonki}"   Command="{Binding WszystkieFakturyCommand}">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/MVVMFirma;component/Content/Icons/chart.png"/>
+                </ToggleButton.Background>
+
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource Ikonki}"   Command="{Binding WszyscyPacjenciCommand}">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/MVVMFirma;component/Content/Icons/search.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource Ikonki}"  Command="{Binding UstawieniaCommand}">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/MVVMFirma;component/Content/Icons/cogwheel.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+        </ToolBar>
+
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource BorderK}">
+            <Grid Width="230" Background="#36474F">
+                <HeaderedContentControl               
+                    Content="{Binding Path=Commands}" 
+                    ContentTemplate="{StaticResource CommandsTemplate}" />                
+                <Label Name="lblLocalDate" FontSize="28" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Foreground="#C8CCCD" Margin="0,0,0,45" />
+                <Label Name="lblTime" FontSize="38" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Foreground="#C8CCCD" />
+            </Grid>
+        </Border>
+          <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource BorderK}">
+            <Grid >
+                <HeaderedContentControl Content="{Binding Path=Workspaces}" ContentTemplate="{StaticResource WorkspacesTemplate}" />
+            </Grid>
+        </Border>
+        <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Style="{StaticResource StatusBar}" Background="#36474F">
+            <StatusBarItem>
+                <TextBlock Style="{StaticResource StatusBarItem1}" Foreground="#C8CCCD">Menadzer Gabinetu</TextBlock>
+            </StatusBarItem>
+
+            <StatusBarItem  HorizontalAlignment="Right">
+                <TextBlock Style="{StaticResource StatusBarItem2}" Foreground="#C8CCCD">WSB-NLU</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+
+    </Grid>
+</Window>

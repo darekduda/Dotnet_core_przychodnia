@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="MVVMFirma.Views.NowyKontrahentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVVMFirma.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StylZakladki.xaml"/>
+    </UserControl.Resources>
+    <ScrollViewer Height="500" VerticalScrollBarVisibility="Auto">
+        <Grid Style="{StaticResource Grid}" >
+            <Grid.RowDefinitions  >
+                <RowDefinition Style="{StaticResource RowTytulowy}"  />
+                <RowDefinition Height="*"/>
+                <RowDefinition Style="{StaticResource RowTytulowy}"  />
+                <RowDefinition Height="*"/>
+                <RowDefinition Style="{StaticResource Row80}" />
+            </Grid.RowDefinitions>
+            <!--Wiersz 1-->
+            <Grid Grid.Row="0" Style="{StaticResource GridMargin}">
+                <Label Content="Dane Kontrahenta" Style="{StaticResource LabelWiekszy}"/>
+                <Separator Style="{StaticResource Separator}"/>
+            </Grid>
+            <!--Wiersz 3-->
+            <Grid Grid.Row="1" Style="{StaticResource GridMargin}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition/>
+                    <RowDefinition />
+                    <RowDefinition/>
+                    <RowDefinition />
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionStandardowy}"/>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionSeparacyjny}"/>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionSzeroki}"/>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionSeparacyjny}"/>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionStandardowy}"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0"  Content="Kod:" Style="{StaticResource LabelStandardowyPogrubiony}"/>
+                <TextBox Grid.Row="0"  Grid.Column="2" Width="210" Text="{Binding Kod, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxBialyZRamkaSzeroki}" Template="{DynamicResource  TextBoxZaokraglony}"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Nazwa:" Style="{StaticResource LabelStandardowyPogrubiony}"/>
+                <TextBox Grid.Row="1"  Grid.Column="2"  Text="{Binding Nazwa, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxBialyZRamkaSzeroki}" Template="{DynamicResource  TextBoxZaokraglony}"/>
+                <Label Grid.Row="2"  Grid.Column="0" Content="NIP:" Style="{StaticResource LabelStandardowyPogrubiony}"/>
+                <TextBox Grid.Row="2" Grid.Column="2"  Text="{Binding Nip, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxBialyZRamkaSzeroki}" Template="{DynamicResource  TextBoxZaokraglony}" VerticalAlignment="Top"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="REGON:" Style="{StaticResource LabelStandardowyPogrubiony}"/>
+                <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Regon, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                         Style="{StaticResource TextBoxBialyZRamkaSzeroki}" Template="{DynamicResource  TextBoxZaokraglony}"/>
+                <Label Grid.Row="4" Grid.Column="0" Content="Osoba kontaktowa:" Style="{StaticResource LabelStandardowyPogrubiony}" />
+                <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding OsobaKontaktowa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxBialyZRamkaSzeroki}" Template="{DynamicResource  TextBoxZaokraglony}"/>
+                <Label Grid.Row="5" Grid.Column="0" Content="E-mail:" Style="{StaticResource LabelStandardowyPogrubiony}"/>
+                <TextBox Grid.Row="5" Grid.Column="2"  Text="{Binding AdresEmail, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxBialyZRamkaSzeroki}" Template="{DynamicResource  TextBoxZaokraglony}"/>
+                <Label Grid.Row="6" Grid.Column="0" Content="Telefon:" Style="{StaticResource LabelStandardowyPogrubiony}" />
+                <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding NrTelefonu, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxBialyZRamkaSzeroki}" Template="{DynamicResource  TextBoxZaokraglony}"/>
+            </Grid>
+            <!--Wiersz 4-->
+            <Grid Grid.Row="2" Style="{StaticResource GridMargin}">
+                <Label Content="Adres siedziby firmy" Style="{StaticResource LabelWiekszy}"/>
+                <Separator Style="{StaticResource Separator}"/>
+            </Grid>
+            <!--Wiersz 5-->
+            <Grid Grid.Row="3" Style="{StaticResource GridMargin}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionStandardowy}"/>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionSeparacyjny}"/>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionStandardowy}"/>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionSeparacyjny}"/>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionStandardowy}"/>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionSeparacyjny}"/>
+                    <ColumnDefinition Style="{StaticResource 1ColumnDefinitionStandardowy}"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0"  Grid.Column="0" Content="Wybierz adres:"
+                        Command="{Binding ShowAdresy}"  Style="{StaticResource ButtonMaly33}" Template="{DynamicResource ButtonCiemnyRoz}"/>
+                <TextBox Grid.Row="0" Grid.Column="2" Style="{StaticResource TextBoxNieedytowalny}" 
+                         Text="{Binding Ulica, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="0" Grid.Column="4" Style="{StaticResource TextBoxNieedytowalny}" 
+                         Text="{Binding NrDomu, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="0" Grid.Column="6" Style="{StaticResource TextBoxNieedytowalny}" 
+                         Text="{Binding NrLokalu, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Grid.Column="2" Style="{StaticResource TextBoxNieedytowalny}" 
+                         Text="{Binding KodPocztowy, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Grid.Column="4" Style="{StaticResource TextBoxNieedytowalny}" 
+                         Text="{Binding Miasto, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="2" Grid.Column="2" Style="{StaticResource TextBoxNieedytowalny}" 
+                         Text="{Binding WojewodztwoNazwa, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="2" Grid.Column="4" Style="{StaticResource TextBoxNieedytowalny}" 
+                         Text="{Binding KrajNazwa, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+            <!--Wiersz 9-->
+            <Grid Row="4" >
+                <Button Content="Dodaj Kontrahenta" Style="{StaticResource ButtonStandardowy}" Template="{DynamicResource ButtonCiemnyRoz}" Command="{Binding SaveCommand}"/>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

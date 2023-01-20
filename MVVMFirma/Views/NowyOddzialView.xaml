@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="MVVMFirma.Views.NowyOddzialView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVVMFirma.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StylZakladki.xaml"/>
+    </UserControl.Resources>
+    <Grid Style="{StaticResource Grid}" >
+        <Grid.RowDefinitions  >
+            <RowDefinition Style="{StaticResource RowTytulowy}"  />
+            <RowDefinition Style="{StaticResource Row80}"/>
+            <RowDefinition Style="{StaticResource RowTytulowy}"  />
+        </Grid.RowDefinitions>
+        <!--Wiersz 1-->
+        <Grid Grid.Row="0" Style="{StaticResource GridMargin}">
+            <Label Content="Oddział NFZ" Style="{StaticResource LabelWiekszy}"/>
+            <Separator Style="{StaticResource Separator}"/>
+        </Grid>
+        <!--Wiersz 2-->
+        <Grid Grid.Row="1" Style="{StaticResource GridMargin}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Style="{StaticResource Kolumna150}" Width="Auto"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Nazwa:" Style="{StaticResource LabelStandardowyPogrubiony}"/>
+            <TextBox Grid.Row="0"  Grid.Column="1" Width="300" Text="{Binding Nazwa, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxBialyZRamka}" Template="{DynamicResource  TextBoxZaokraglony}"/>
+        </Grid>
+        <!--Wiersz 3-->
+        <Grid Row="2" >
+            <Button Content="Dodaj" Style="{StaticResource ButtonMaly}" Width="80" Margin="300,0,0,0" Template="{DynamicResource ButtonCiemnyRoz}" Command="{Binding SaveCommand}"/>
+        </Grid>
+    </Grid>
+</UserControl>
